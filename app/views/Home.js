@@ -1,16 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View } from "react-native";
+import { Header } from "./../sections/Header";
+import { Hero } from "./../sections/Hero";
+import { Menu } from "./../sections/Menu";
 
 export class Home extends React.Component {
 
     render() {
         return (
-            <View>
-                <Text> this will be the homepage of my work. </Text>
-                <Text> others line will be here ... </Text>
-                <Text> i can add more thext using Text tag. </Text>
+            <View style={styles.container}>
+                <Header message='Press to Login.' />
+                <Hero />
+                <Menu />
             </View>
         );
     }
 
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    }
+});
