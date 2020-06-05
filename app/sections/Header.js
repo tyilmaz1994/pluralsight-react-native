@@ -44,6 +44,7 @@ export class Header extends React.Component {
 
 const styles = StyleSheet.create({
     headText: {
+        flex:1,
         textAlign: 'right',
         color: '#fff',
         fontSize: 20,
@@ -57,7 +58,8 @@ const styles = StyleSheet.create({
     },
     logoStyle: {
         flex:1,
-        width:undefined,
-        height:undefined,
+        flexDirection:'row',
+        width:'75%',
+        height:'75%',
     }
 });
