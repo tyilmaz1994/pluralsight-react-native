@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from "react-native";
 import { Header } from "./../sections/Header";
 import { Hero } from "./../sections/Hero";
 import { Menu } from "./../sections/Menu";
-import { StackNavigator } from "react-navigation";
 
 export class Home extends React.Component {
 
@@ -17,7 +16,7 @@ export class Home extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Header message='Press to Login.' />
+                <Header message='Press to Login.' navigate={navigate} />
                 <Hero />
                 <Menu navigate={navigate} />
             </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Platform, Image } from "react-native";
+import { StyleSheet, Text, View, Platform, Image, AsyncStorage, Alert } from "react-native";
 
 export class Header extends React.Component {
     
@@ -8,20 +8,52 @@ export class Header extends React.Component {
 
         this.state = {
             isLoggedIn: false,
+            loggedUser: false,
         }
     }
 
+    componentDidMount() {
+        AsyncStorage.getItem('userLoggedIn', (err, result) => {
+            if(result === 'none') {
+                console.log('NONE');
+            }
+            else if(result === null) {
+                AsyncStorage.setItem('userLoggedIn', 'none', (err, result) => {
+                    console.log('set user to NONE');
+                })
+            }
+            else {
+                this.setState({
+                    isLoggedIn: true,
+                    loggedUser: result,
+                })
+            }
+        })
+    }
+
     toggleUser = () => {
-        this.setState(_prevState => {
-            return {
-                isLoggedIn: !_prevState.isLoggedIn,
-            };
-        });
+        
+        debugger;
+
+        if(this.state.isLoggedIn) {
+            AsyncStorage.setItem('userLoggedIn', 'none', (err, result) => {
+                this.setState({
+                    isLoggedIn: false,
+                    loggedUser: false,
+                })
+
+                Alert.alert('user logged out');
+            })
+        }
+        else {
+            this.props.navigate('LoginRT');
+        }
+
     }
 
     render() {
         let display = this.state.isLoggedIn 
-            ? 'Simple User'
+            ? this.state.loggedUser
             : this.props.message;
 
         return (
