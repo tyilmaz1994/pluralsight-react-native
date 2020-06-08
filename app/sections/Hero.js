@@ -8,7 +8,7 @@ export class Hero extends React.Component {
         return (
             <Image 
                 style={styles.heroImage}
-                source={require('./img/img2.png')}
+                source={require('./img/laptop2.jpg')}
 
             />
         );
