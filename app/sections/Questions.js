@@ -34,7 +34,6 @@ export class Questions extends React.Component {
     }
 
     render() {
-        debugger;
         return (
             <View style={styles.container}>
 

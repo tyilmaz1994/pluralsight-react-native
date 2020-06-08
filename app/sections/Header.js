@@ -33,8 +33,6 @@ export class Header extends React.Component {
 
     toggleUser = () => {
         
-        debugger;
-
         if(this.state.isLoggedIn) {
             AsyncStorage.setItem('userLoggedIn', 'none', (err, result) => {
                 this.setState({

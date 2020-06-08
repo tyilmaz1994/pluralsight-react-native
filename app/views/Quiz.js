@@ -60,7 +60,6 @@ export class Quiz extends React.Component {
     }
 
     render() {
-        debugger;
         return (
             <View style={styles.container}>
                 {this.state.questLoaded && (
